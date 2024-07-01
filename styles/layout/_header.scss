@@ -4,42 +4,84 @@
 @use "../abstracts/functions" as f;
 @use "../abstracts/breakpoints" as b;
 
+// <header>
 .header {
-  // border: 1px solid red;
+  position: relative;
+  border: 1px solid red;
   display: flex;
   align-items: center;
   padding-block: var(--smaller-g-padding);
 
-  nav {
-    flex-grow: 1;
+  @include b.breakpoint(md, max-width) {
+    justify-content: space-between;
   }
 
+  // <nav>
   &__nav {
-    display: flex;
-    align-items: center;
-    color: var(--heading-text-color);
+    flex-grow: 1;
 
-    li:first-of-type {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        display: flex;
-        align-items: center;
-        gap: var(--smaller-g-padding);
-        color: currentColor;
-        text-decoration: none;
-      }
-    }
-    li:last-of-type {
-      display: flex;
-      align-items: center;
-      gap: var(--g-padding);
-    }
     @include b.breakpoint(md, max-width) {
       display: none;
+      padding-inline: var(--smaller-g-padding);
+    }
+
+    &--mobile-open {
+      @include b.breakpoint(md, max-width) {
+        display: block;
+        border: 1px solid var(--accent);
+        position: absolute;
+        inset: 100% 0 0 0;
+        height: fit-content;
+
+        > ul {
+          flex-direction: column;
+          align-items: stretch;
+          gap: var(--g-padding);
+
+          > li:first-of-type {
+            border: 1px solid yellow;
+            justify-content: start;
+          }
+          > li:last-of-type {
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--smaller-g-padding);
+
+            button:first-of-type {
+              grid-template-columns: repeat(2, min-content);
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+
+    // <ul>
+    &__list {
+      display: flex;
+      align-items: center;
+      color: var(--heading-text-color);
+
+      > li:first-of-type {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: var(--smaller-g-padding);
+          color: currentColor;
+          text-decoration: none;
+        }
+      }
+
+      > li:last-of-type {
+        display: flex;
+        align-items: center;
+        gap: var(--g-padding);
+      }
     }
   }
 }

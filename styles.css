@@ -265,6 +265,11 @@ body {
 .container {
   padding-inline: var(--g-padding);
 }
+@media (max-width: 45em) {
+  .container {
+    padding-inline: var(--smaller-g-padding);
+  }
+}
 
 .clickable {
   cursor: pointer;
@@ -282,40 +287,75 @@ body {
 }
 
 .header {
+  position: relative;
+  border: 1px solid red;
   display: flex;
   align-items: center;
   padding-block: var(--smaller-g-padding);
 }
-.header nav {
-  flex-grow: 1;
+@media (max-width: 45em) {
+  .header {
+    justify-content: space-between;
+  }
 }
 .header__nav {
+  flex-grow: 1;
+}
+@media (max-width: 45em) {
+  .header__nav {
+    display: none;
+    padding-inline: var(--smaller-g-padding);
+  }
+}
+@media (max-width: 45em) {
+  .header__nav--mobile-open {
+    display: block;
+    border: 1px solid var(--accent);
+    position: absolute;
+    inset: 100% 0 0 0;
+    height: fit-content;
+  }
+  .header__nav--mobile-open > ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--g-padding);
+  }
+  .header__nav--mobile-open > ul > li:first-of-type {
+    border: 1px solid yellow;
+    justify-content: start;
+  }
+  .header__nav--mobile-open > ul > li:last-of-type {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--smaller-g-padding);
+  }
+  .header__nav--mobile-open > ul > li:last-of-type button:first-of-type {
+    grid-template-columns: repeat(2, min-content);
+    justify-content: center;
+  }
+}
+.header__nav__list {
   display: flex;
   align-items: center;
   color: var(--heading-text-color);
 }
-.header__nav li:first-of-type {
+.header__nav__list > li:first-of-type {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.header__nav li:first-of-type a {
+.header__nav__list > li:first-of-type a {
   display: flex;
   align-items: center;
   gap: var(--smaller-g-padding);
   color: currentColor;
   text-decoration: none;
 }
-.header__nav li:last-of-type {
+.header__nav__list > li:last-of-type {
   display: flex;
   align-items: center;
   gap: var(--g-padding);
-}
-@media (max-width: 45em) {
-  .header__nav {
-    display: none;
-  }
 }
 
 .hamburger {

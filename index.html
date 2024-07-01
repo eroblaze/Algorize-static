@@ -26,9 +26,12 @@
           fill="var(--icon-color)"
         />
       </svg>
-      <nav>
-        <ul role="list" class="header__nav" id="header__nav">
+      <nav class="header__nav header__nav--mobile-open">
+        <ul role="list" class="header__nav__list" id="header__nav__list">
           <li>
+            <details>
+              <summary></summary>
+            </details>
             <a href="">
               <svg
                 class="icon"
@@ -76,7 +79,7 @@
         <svg
           class="icon"
           aria-label="Menu toggle"
-          aria-controls="header__nav"
+          aria-controls="header__nav__list"
           width="28"
           height="20"
           viewBox="0 0 28 20"

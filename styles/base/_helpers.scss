@@ -6,6 +6,10 @@
 
 .container {
   padding-inline: var(--g-padding);
+
+  @include b.breakpoint(md, max-width) {
+    padding-inline: var(--smaller-g-padding);
+  }
 }
 
 .clickable {
