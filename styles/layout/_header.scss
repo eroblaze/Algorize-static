@@ -8,6 +8,7 @@
   border: 1px solid red;
   display: flex;
   align-items: center;
+  padding-block: var(--smaller-g-padding);
 
   nav {
     flex-grow: 1;
@@ -21,21 +22,26 @@
     li:first-of-type {
       flex-grow: 1;
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: var(--smaller-g-padding);
+      align-items: center;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: var(--smaller-g-padding);
+        color: currentColor;
+        text-decoration: none;
+      }
     }
     li:last-of-type {
       display: flex;
       align-items: center;
       gap: var(--g-padding);
     }
+    @include b.breakpoint(md, max-width) {
+      display: none;
+    }
   }
-
-  // a {
-  //   color: var(--heading-text-color);
-  //   text-decoration: none;
-  // }
 }
 
 .hamburger {
