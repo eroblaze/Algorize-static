@@ -1,0 +1,70 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+@use "./functions" as f;
+@use "./breakpoints" as b;
+@use "./mixins" as m;
+
+$base-size: 16; // in 'px' unit
+
+:root {
+  /* Colors*/
+  --primary: hsl(40, 100%, 50%);
+  --primary-10: hsla(40, 100%, 50%, 0.1);
+  --primary-2: hsl(47, 100%, 50%);
+  --primary-dark: hsl(40, 100%, 35%);
+
+  --secondary: hsl(203, 30%, 26%);
+  --secondary-2: hsl(204, 66%, 10%);
+  --secondary-3: hsl(204, 88%, 7%);
+
+  --accent: hsl(159, 100%, 43%);
+  --accent-10: hsla(159, 100%, 43%, 0.1);
+  --white: hsl(0, 9%, 98%);
+
+  --gray: hsl(30, 17%, 91%);
+  --gray-dark: hsla(30, 17%, 91%, 0.8);
+
+  --black: hsl(204, 93%, 5%);
+  --black-10: hsla(0, 0%, 85%, 0.5);
+  --black-20: hsl(0, 0%, 85%);
+  --black-50: hsl(210, 5%, 34%);
+
+  --red: hsl(7, 97%, 74%);
+  --red-dark: hsl(7, 98%, 65%);
+  --red-dark-10: hsla(7, 98%, 65%, 0.1);
+
+  --mobile-menu-background-color-opacity: 0.5;
+  --overlay-background-color: hsla(204, 93%, 5%, var(--mobile-menu-background-color-opacity));
+
+  /* Sizing */
+  // --g-padding: #{f.rem(16)};
+  // --smaller-g-padding: #{f.rem(8)};
+  --g-padding: #{f.rem(20)};
+  --smaller-g-padding: #{f.rem(10)};
+
+  --b-radius: #{f.rem(20)};
+  --smaller-b-radius: #{f.rem(10)};
+
+  /* Fonts */
+  --primary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --secondary-font: "Fira Code", monospace;
+
+  @include m.light-theme;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include m.dark-theme;
+  }
+}
+
+:root:has(#theme [value="☀️"]:checked) {
+  color-scheme: light;
+  @include m.light-theme;
+}
+
+:root:has(#theme [value="🌑"]:checked) {
+  color-scheme: dark;
+  @include m.dark-theme;
+}

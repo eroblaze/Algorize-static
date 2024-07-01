@@ -1,0 +1,49 @@
+@use "../abstracts/functions" as f;
+
+.btn {
+  --btn-b-style: solid;
+  --btn-b-color: var(--border-color);
+  --btn-background-color: transparent;
+  --btn-color: var(--heading-text-color);
+
+  grid-auto-flow: column;
+
+  color: var(--btn-color);
+  background-color: var(--btn-background-color);
+  border-radius: var(--smaller-b-radius);
+  gap: var(--smaller-g-padding);
+  padding: var(--smaller-g-padding);
+  border: f.rem(1) var(--btn-b-style) var(--btn-b-color);
+
+  &__primary {
+    --btn-b-color: var(--primary-2);
+    --btn-color: var(--black);
+    --btn-background-color: var(--primary-2);
+  }
+
+  &__success {
+    --btn-b-color: var(--accent);
+    --btn-background-color: var(--accent-10);
+  }
+
+  &__error {
+    --btn-b-color: var(--red-dark);
+    --btn-background-color: var(--red-dark-10);
+  }
+
+  &__orange {
+    --btn-b-color: var(--primary);
+    --btn-background-color: var(--primary-10);
+  }
+
+  &__dashed {
+    --btn-b-color: var(--code-blocks-dashed-border-color);
+    --btn-b-style: dashed;
+  }
+
+  &__code__block {
+    --btn-b-color: var(--code-blocks-default-background-color);
+    --btn-color: var(--white);
+    --btn-background-color: var(--code-blocks-default-background-color);
+  }
+}

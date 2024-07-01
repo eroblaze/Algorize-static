@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+// public variables
+@mixin light-theme {
+  --background-color: var(--white);
+  --text-color: var(--black-50);
+  --heading-text-color: var(--black);
+  --icon-color: var(--black);
+  --border-color: var(--black-20);
+  --section-background-color: var(--white);
+  --breadcrumbs-color: var(--black-50);
+  --language-select-border-color: var(--black-50);
+  --code-blocks-default-background-color: var(--secondary);
+  --code-blocks-dashed-border-color: var(--black-50);
+  --footer-text-color: var(--black-50);
+  --text-hover-background-color: var(--black-10);
+}
+
+@mixin dark-theme {
+  --background-color: var(--secondary-3);
+  --text-color: var(--gray-dark);
+  --heading-text-color: var(--white);
+  --icon-color: var(--black-20);
+  --border-color: var(--black-10);
+  --section-background-color: var(--secondary-2);
+  --breadcrumbs-color: var(--black-10);
+  --language-select-border-color: var(--black-10);
+  --code-blocks-default-background-color: var(--black-50);
+  --code-blocks-dashed-border-color: var(--gray);
+  --footer-text-color: var(--gray-dark);
+  --text-hover-background-color: var(--secondary-3);
+  --mobile-menu-background-color-opacity: 0.9;
+}

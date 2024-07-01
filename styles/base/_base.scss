@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as f;
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  min-height: 100vh;
+
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: var(--primary-font);
+}
+
+:where(.h1, .h2, .h3, .h4) {
+  color: var(--heading-text-color);
+}
+
+code {
+  font-family: var(--secondary-font);
+  font-variant-ligatures: contextual;
+}
+
+@supports (font-variation-settings: normal) {
+  code {
+    font-family: "Fira Code VF", monospace;
+  }
+}

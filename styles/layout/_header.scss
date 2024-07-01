@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as f;
+@use "../abstracts/breakpoints" as b;
+
+.header {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+
+  nav {
+    flex-grow: 1;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    color: var(--heading-text-color);
+
+    li:first-of-type {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--smaller-g-padding);
+    }
+    li:last-of-type {
+      display: flex;
+      align-items: center;
+      gap: var(--g-padding);
+    }
+  }
+
+  // a {
+  //   color: var(--heading-text-color);
+  //   text-decoration: none;
+  // }
+}
+
+.hamburger {
+  min-width: auto;
+  min-height: auto;
+  background-color: transparent;
+  border: none;
+
+  @include b.breakpoint(md) {
+    display: none;
+  }
+}

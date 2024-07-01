@@ -1,0 +1,20 @@
+@use "../abstracts/functions" as f;
+
+.icon {
+  // fill: var(--icon-color);
+}
+
+.circular-icon {
+  --icon-b-color: var(--border-color);
+
+  display: grid;
+  place-items: center;
+  width: f.rem(44);
+  height: f.rem(44);
+  border-radius: 100vmax;
+  border: f.rem(1) solid var(--icon-b-color);
+
+  &__trophy {
+    --icon-b-color: var(--accent);
+  }
+}

@@ -1,0 +1,377 @@
+@charset "UTF-8";
+:root {
+  /* Colors*/
+  --primary: hsl(40, 100%, 50%);
+  --primary-10: hsla(40, 100%, 50%, 0.1);
+  --primary-2: hsl(47, 100%, 50%);
+  --primary-dark: hsl(40, 100%, 35%);
+  --secondary: hsl(203, 30%, 26%);
+  --secondary-2: hsl(204, 66%, 10%);
+  --secondary-3: hsl(204, 88%, 7%);
+  --accent: hsl(159, 100%, 43%);
+  --accent-10: hsla(159, 100%, 43%, 0.1);
+  --white: hsl(0, 9%, 98%);
+  --gray: hsl(30, 17%, 91%);
+  --gray-dark: hsla(30, 17%, 91%, 0.8);
+  --black: hsl(204, 93%, 5%);
+  --black-10: hsla(0, 0%, 85%, 0.5);
+  --black-20: hsl(0, 0%, 85%);
+  --black-50: hsl(210, 5%, 34%);
+  --red: hsl(7, 97%, 74%);
+  --red-dark: hsl(7, 98%, 65%);
+  --red-dark-10: hsla(7, 98%, 65%, 0.1);
+  --mobile-menu-background-color-opacity: 0.5;
+  --overlay-background-color: hsla(204, 93%, 5%, var(--mobile-menu-background-color-opacity));
+  /* Sizing */
+  --g-padding: 1.25rem;
+  --smaller-g-padding: 0.625rem;
+  --b-radius: 1.25rem;
+  --smaller-b-radius: 0.625rem;
+  /* Fonts */
+  --primary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --secondary-font: "Fira Code", monospace;
+  --background-color: var(--white);
+  --text-color: var(--black-50);
+  --heading-text-color: var(--black);
+  --icon-color: var(--black);
+  --border-color: var(--black-20);
+  --section-background-color: var(--white);
+  --breadcrumbs-color: var(--black-50);
+  --language-select-border-color: var(--black-50);
+  --code-blocks-default-background-color: var(--secondary);
+  --code-blocks-dashed-border-color: var(--black-50);
+  --footer-text-color: var(--black-50);
+  --text-hover-background-color: var(--black-10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--secondary-3);
+    --text-color: var(--gray-dark);
+    --heading-text-color: var(--white);
+    --icon-color: var(--black-20);
+    --border-color: var(--black-10);
+    --section-background-color: var(--secondary-2);
+    --breadcrumbs-color: var(--black-10);
+    --language-select-border-color: var(--black-10);
+    --code-blocks-default-background-color: var(--black-50);
+    --code-blocks-dashed-border-color: var(--gray);
+    --footer-text-color: var(--gray-dark);
+    --text-hover-background-color: var(--secondary-3);
+    --mobile-menu-background-color-opacity: 0.9;
+  }
+}
+:root:has(#theme [value=☀️]:checked) {
+  color-scheme: light;
+  --background-color: var(--white);
+  --text-color: var(--black-50);
+  --heading-text-color: var(--black);
+  --icon-color: var(--black);
+  --border-color: var(--black-20);
+  --section-background-color: var(--white);
+  --breadcrumbs-color: var(--black-50);
+  --language-select-border-color: var(--black-50);
+  --code-blocks-default-background-color: var(--secondary);
+  --code-blocks-dashed-border-color: var(--black-50);
+  --footer-text-color: var(--black-50);
+  --text-hover-background-color: var(--black-10);
+}
+
+:root:has(#theme [value=🌑]:checked) {
+  color-scheme: dark;
+  --background-color: var(--secondary-3);
+  --text-color: var(--gray-dark);
+  --heading-text-color: var(--white);
+  --icon-color: var(--black-20);
+  --border-color: var(--black-10);
+  --section-background-color: var(--secondary-2);
+  --breadcrumbs-color: var(--black-10);
+  --language-select-border-color: var(--black-10);
+  --code-blocks-default-background-color: var(--black-50);
+  --code-blocks-dashed-border-color: var(--gray);
+  --footer-text-color: var(--gray-dark);
+  --text-hover-background-color: var(--secondary-3);
+  --mobile-menu-background-color-opacity: 0.9;
+}
+
+/**
+All external libraries should go in this folder
+**/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+/* Set line height to heading tags */
+:where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4) {
+  line-height: 1.2;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+:where(ul, ol)[role=list] {
+  list-style-type: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Default styles for  buttons */
+button {
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html {
+  color-scheme: light dark;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: var(--primary-font);
+}
+
+:where(.h1, .h2, .h3, .h4) {
+  color: var(--heading-text-color);
+}
+
+code {
+  font-family: var(--secondary-font);
+  font-variant-ligatures: contextual;
+}
+
+@supports (font-variation-settings: normal) {
+  code {
+    font-family: "Fira Code VF", monospace;
+  }
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("../../public/fonts/fira/FiraCode-Light.woff2") format("woff2"), url("../../public/fonts/fira/FiraCode-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("../../public/fonts/fira/FiraCode-Regular.woff2") format("woff2"), url("../../public/fonts/fira/FiraCode-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("../../public/fonts/fira/FiraCode-Medium.woff2") format("woff2"), url("../../public/fonts/fira/FiraCode-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("../../public/fonts/fira/FiraCode-SemiBold.woff2") format("woff2"), url("../../public/fonts/fira/FiraCode-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code";
+  src: url("../../public/fonts/fira/FiraCode-Bold.woff2") format("woff2"), url("../../public/fonts/fira/FiraCode-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fira Code VF";
+  src: url("../../public/fonts/fira/FiraCode-VF.woff2") format("woff2-variations"), url("../../public/fonts/fira/FiraCode-VF.woff") format("woff-variations");
+  /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+  font-weight: 300 700;
+  font-style: normal;
+}
+body {
+  --user-font-scale: 1rem - 16px;
+  font-size: clamp(1rem, 1.0309vw + 0.4626rem + var(--user-font-scale), 1.125rem);
+}
+
+.h4 {
+  font-size: 1.333rem;
+}
+
+.h3 {
+  font-size: 1.776889rem;
+}
+
+.h2 {
+  font-size: 2.368593037rem;
+}
+
+.h1 {
+  font-size: 3.1573345183rem;
+}
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--g-padding);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.header {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+}
+.header nav {
+  flex-grow: 1;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  color: var(--heading-text-color);
+}
+.header__nav li:first-of-type {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--smaller-g-padding);
+}
+.header__nav li:last-of-type {
+  display: flex;
+  align-items: center;
+  gap: var(--g-padding);
+}
+
+.hamburger {
+  min-width: auto;
+  min-height: auto;
+  background-color: transparent;
+  border: none;
+}
+@media (min-width: 45em) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.btn {
+  --btn-b-style: solid;
+  --btn-b-color: var(--border-color);
+  --btn-background-color: transparent;
+  --btn-color: var(--heading-text-color);
+  grid-auto-flow: column;
+  color: var(--btn-color);
+  background-color: var(--btn-background-color);
+  border-radius: var(--smaller-b-radius);
+  gap: var(--smaller-g-padding);
+  padding: var(--smaller-g-padding);
+  border: 0.0625rem var(--btn-b-style) var(--btn-b-color);
+}
+.btn__primary {
+  --btn-b-color: var(--primary-2);
+  --btn-color: var(--black);
+  --btn-background-color: var(--primary-2);
+}
+.btn__success {
+  --btn-b-color: var(--accent);
+  --btn-background-color: var(--accent-10);
+}
+.btn__error {
+  --btn-b-color: var(--red-dark);
+  --btn-background-color: var(--red-dark-10);
+}
+.btn__orange {
+  --btn-b-color: var(--primary);
+  --btn-background-color: var(--primary-10);
+}
+.btn__dashed {
+  --btn-b-color: var(--code-blocks-dashed-border-color);
+  --btn-b-style: dashed;
+}
+.btn__code__block {
+  --btn-b-color: var(--code-blocks-default-background-color);
+  --btn-color: var(--white);
+  --btn-background-color: var(--code-blocks-default-background-color);
+}
+
+.circular-icon {
+  --icon-b-color: var(--border-color);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 100vmax;
+  border: 0.0625rem solid var(--icon-b-color);
+}
+.circular-icon__trophy {
+  --icon-b-color: var(--accent);
+}
+
+/*# sourceMappingURL=styles.css.map */
