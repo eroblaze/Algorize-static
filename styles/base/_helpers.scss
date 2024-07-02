@@ -16,6 +16,20 @@
   cursor: pointer;
 }
 
+.show_md {
+  display: none;
+  @include b.breakpoint(md) {
+    display: block;
+  }
+}
+
+.hide_md {
+  display: block;
+  @include b.breakpoint(md) {
+    display: none;
+  }
+}
+
 // Hides content and makes it only available to screen readers.
 .sr-only {
   position: absolute;
