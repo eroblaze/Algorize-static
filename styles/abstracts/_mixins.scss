@@ -23,6 +23,7 @@
 
   @include b.breakpoint(md, max-width) {
     --navigation-list-content-background-color: var(--black-10);
+    --text-hover-background-color: var(--white);
   }
 }
 

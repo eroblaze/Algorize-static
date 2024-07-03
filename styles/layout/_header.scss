@@ -31,14 +31,16 @@
 
 // <header>
 .header {
-  position: relative;
   // border: 1px solid red;
   display: flex;
+  position: relative;
   align-items: center;
   padding-block: var(--smaller-g-padding);
+  font-size: f.rem(14);
 
   @include b.breakpoint(md, max-width) {
     justify-content: space-between;
+    font-size: f.rem(16);
   }
 
   // <nav>
@@ -47,13 +49,15 @@
 
     &--mobile-open {
       @include b.breakpoint(md, max-width) {
-        padding-inline: var(--smaller-g-padding);
-        padding-block-start: var(--g-padding);
+        border: 1px solid red;
         display: block;
-        // border: 1px solid var(--accent);
         position: absolute;
         inset: 100% 0 0 0;
-        height: fit-content;
+
+        padding-inline: var(--smaller-g-padding);
+        padding-block-start: var(--g-padding);
+        height: 100vh;
+        overflow-y: auto;
 
         > ul {
           flex-direction: column;
@@ -113,22 +117,28 @@
 
 .header__nav__list__contents {
   --h-n-l-c-background-color: var(--navigation-list-content-background-color);
+  --h-n-l-c-border-radius: var(--smaller-b-radius);
   display: none;
   color: var(--text-color);
   background-color: var(--h-n-l-c-background-color);
   border: f.rem(1) solid var(--navigation-list-content-border-color);
+  border-radius: var(--h-n-l-c-border-radius);
+
+  @include b.breakpoint(md) {
+    display: block;
+    --h-n-l-c-border-radius: var(--b-radius);
+  }
 
   @include b.breakpoint(md, max-width) {
     flex-direction: column;
     width: 100%;
     padding: var(--smaller-g-padding);
-    border-radius: var(--smaller-b-radius);
     border-color: var(--h-n-l-c-background-color);
     gap: var(--smaller-g-padding);
 
-    details {
-      // border: 1px solid blue;
-      > summary {
+    .nav__list__content {
+      > .nav__list__content__header {
+        // border: 1px solid blue;
         @include iconwithtext;
       }
       &[open] {
@@ -137,6 +147,7 @@
         }
       }
       & > nav {
+        display: none;
         padding-inline-start: f.rem(4);
         padding-block-start: var(--smaller-g-padding);
 
@@ -154,9 +165,13 @@
           text-decoration: none;
 
           &.active-link {
+            color: var(--heading-text-color);
             background-color: var(--text-hover-background-color);
           }
         }
+      }
+      & > nav.open {
+        display: block;
       }
     }
   }

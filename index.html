@@ -26,7 +26,7 @@
           fill="var(--icon-color)"
         />
       </svg>
-      <nav class="header__nav header__nav--mobile-open">
+      <nav class="header__nav show_md">
         <ul role="list" class="header__nav__list" id="header__nav__list">
           <li>
             <a class="clickable mobile_nav_opener">
@@ -61,8 +61,8 @@
             </a>
 
             <div class="header__nav__list__contents">
-              <details>
-                <summary class="clickable">
+              <div class="nav__list__content">
+                <div class="clickable nav__list__content__header">
                   <svg
                     class="hide_md"
                     aria-label="summary marker"
@@ -75,7 +75,7 @@
                     <path d="M3.99996 3.99999L0.666626 0.666656H7.33329L3.99996 3.99999Z" fill="var(--icon-color)" />
                   </svg>
                   <span>Searching</span>
-                </summary>
+                </div>
                 <nav>
                   <ul>
                     <li>
@@ -86,9 +86,10 @@
                     </li>
                   </ul>
                 </nav>
-              </details>
-              <details>
-                <summary class="clickable">
+              </div>
+
+              <div class="nav__list__content">
+                <div class="clickable nav__list__content__header">
                   <svg
                     class="hide_md"
                     aria-label="summary marker"
@@ -101,7 +102,8 @@
                     <path d="M3.99996 3.99999L0.666626 0.666656H7.33329L3.99996 3.99999Z" fill="var(--icon-color)" />
                   </svg>
                   <span>Sorting</span>
-                </summary>
+                </div>
+
                 <nav>
                   <ul>
                     <li>
@@ -118,9 +120,10 @@
                     </li>
                   </ul>
                 </nav>
-              </details>
-              <details>
-                <summary class="clickable">
+              </div>
+
+              <div class="nav__list__content">
+                <div class="clickable nav__list__content__header">
                   <svg
                     class="hide_md"
                     aria-label="summary marker"
@@ -133,7 +136,8 @@
                     <path d="M3.99996 3.99999L0.666626 0.666656H7.33329L3.99996 3.99999Z" fill="var(--icon-color)" />
                   </svg>
                   <span>Graph algorithms</span>
-                </summary>
+                </div>
+
                 <nav>
                   <ul>
                     <li>
@@ -150,7 +154,7 @@
                     </li>
                   </ul>
                 </nav>
-              </details>
+              </div>
             </div>
           </li>
 
