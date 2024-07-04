@@ -46,33 +46,69 @@
   // <nav>
   &__nav {
     flex-grow: 1;
+    // <ul>
+    &__list {
+      display: grid;
+      align-items: center;
+      color: var(--heading-text-color);
+
+      @include b.breakpoint(md) {
+        grid-template-columns: 1fr auto;
+        align-items: stretch;
+
+        > li:first-of-type {
+          > div:last-of-type {
+            height: 100%;
+          }
+        }
+      }
+
+      > li:first-of-type {
+        flex-grow: 1;
+        > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          > a {
+            @include iconwithtext;
+          }
+        }
+      }
+
+      > li:last-of-type {
+        display: flex;
+        align-items: center;
+        gap: var(--g-padding);
+      }
+    }
 
     &--mobile-open {
       @include b.breakpoint(md, max-width) {
-        border: 1px solid red;
+        // border: 1px solid red;
         display: block;
         position: absolute;
         inset: 100% 0 0 0;
 
         padding-inline: var(--smaller-g-padding);
         padding-block-start: var(--g-padding);
-        height: 100vh;
+        height: calc(100vh - var(--header-height));
         overflow-y: auto;
 
         > ul {
-          flex-direction: column;
-          align-items: stretch;
           gap: var(--g-padding);
 
           > li:first-of-type {
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            gap: var(--g-padding);
+            > div {
+              flex-direction: column;
+              justify-content: start;
+              align-items: start;
+              gap: var(--g-padding);
 
-            a {
-              // border: 1px solid yellow;
-              width: 100%;
+              .mobile_nav_opener {
+                // border: 1px solid yellow;
+                width: 100%;
+              }
             }
           }
           > li:last-of-type {
@@ -88,31 +124,30 @@
         }
       }
     }
-
-    // <ul>
-    &__list {
-      display: flex;
-      align-items: center;
-      color: var(--heading-text-color);
-
-      > li:first-of-type {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        > a {
-          @include iconwithtext;
-        }
-      }
-
-      > li:last-of-type {
-        display: flex;
-        align-items: center;
-        gap: var(--g-padding);
-      }
-    }
   }
+}
+
+.mobile_nav_opener {
+  @include b.breakpoint(md) {
+    display: none !important;
+  }
+}
+
+.desktop_nav_opener {
+  height: 100%;
+  // border: 1px solid red;
+  @include b.breakpoint(md, max-width) {
+    display: none !important;
+  }
+}
+
+.desktop_nav_opener:hover ~ div {
+  display: flex;
+}
+
+#header__nav__list__contents--desktop:hover,
+#header__nav__list__contents--desktop:hover + div {
+  display: flex;
 }
 
 .header__nav__list__contents {
@@ -123,6 +158,8 @@
   background-color: var(--h-n-l-c-background-color);
   border: f.rem(1) solid var(--navigation-list-content-border-color);
   border-radius: var(--h-n-l-c-border-radius);
+  z-index: 2;
+  font-size: f.rem(16);
 
   a {
     display: block;
@@ -131,9 +168,15 @@
     padding-block: calc(var(--smaller-g-padding) / 2);
     color: currentColor;
     text-decoration: none;
+    transition: 150ms background-color ease-in-out;
 
     &.active-link {
       color: var(--heading-text-color);
+      background-color: var(--active-link);
+    }
+
+    &:not(.active-link):hover,
+    &:not(.active-link):focus {
       background-color: var(--text-hover-background-color);
     }
   }
@@ -182,7 +225,9 @@
 
 #header__nav__list__contents--desktop {
   --h-n-l-c-border-radius: var(--b-radius);
-  display: flex; // remove this from here later
+  // display: flex; // remove this from here later
+  position: absolute;
+  inset-block-start: 80%;
 
   @include b.breakpoint(md, max-width) {
     display: none;
@@ -220,6 +265,14 @@
       }
     }
   }
+}
+
+.header__nav__list__contents--desktop_background {
+  display: none;
+  position: absolute;
+  inset: 100% 0 0 0;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--overlay-background-color);
 }
 
 .hamburger {

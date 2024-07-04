@@ -1,13 +1,14 @@
-const elem = document.querySelector(".mobile_nav_opener");
-const elem2 = document.querySelector(".hamburger");
+const mobileNavOpener = document.querySelector(".mobile_nav_opener");
+const desktopNavOpener = document.querySelector(".mobile_nav_opener");
+const hamburger = document.querySelector(".hamburger");
 const elem3 = document.querySelectorAll(".nav__list__content__header");
 
-elem.addEventListener("click", () => {
-  document.querySelector(".header__nav__list__contents").classList.toggle("open");
-  document.querySelector(".mobile_nav_opener_dropdown_icon").classList.toggle("rotate-arrow");
+mobileNavOpener.addEventListener("click", () => {
+  document.querySelector("#header__nav__list__contents--mobile")?.classList.toggle("open");
+  document.querySelector(".mobile_nav_opener_dropdown_icon")?.classList.toggle("rotate-arrow");
 });
 
-elem2.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {
   document.querySelector(".header__nav").classList.toggle("header__nav--mobile-open");
 });
 console.log("working");

@@ -17,13 +17,17 @@
   --code-blocks-default-background-color: var(--secondary);
   --code-blocks-dashed-border-color: var(--black-50);
   --footer-text-color: var(--black-50);
-  --text-hover-background-color: var(--black-10);
+
+  --active-link: var(--black-10);
+  --text-hover-background-color: hsla(0, 0%, 85%, 0.3);
+
   --navigation-list-content-background-color: var(--white);
   --navigation-list-content-border-color: var(--black-50);
 
   @include b.breakpoint(md, max-width) {
     --navigation-list-content-background-color: var(--black-10);
-    --text-hover-background-color: var(--white);
+    --active-link: var(--black-20);
+    --text-hover-background-color: var(--black-10);
   }
 }
 
@@ -40,7 +44,10 @@
   --code-blocks-default-background-color: var(--black-50);
   --code-blocks-dashed-border-color: var(--gray);
   --footer-text-color: var(--gray-dark);
-  --text-hover-background-color: var(--secondary-3);
+
+  --active-link: var(--secondary-3);
+  --text-hover-background-color: hsla(204, 88%, 7%, 0.5);
+
   --mobile-menu-background-color-opacity: 0.9;
   --navigation-list-content-background-color: var(--secondary-2);
   --navigation-list-content-border-color: var(--black-10);

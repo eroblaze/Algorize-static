@@ -37,6 +37,10 @@ $base-size: 16; // in 'px' unit
   --mobile-menu-background-color-opacity: 0.5;
   --overlay-background-color: hsla(204, 93%, 5%, var(--mobile-menu-background-color-opacity));
 
+  /* Fonts */
+  --primary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --secondary-font: "Fira Code", monospace;
+
   /* Sizing */
   // --g-padding: #{f.rem(16)};
   // --smaller-g-padding: #{f.rem(8)};
@@ -46,9 +50,10 @@ $base-size: 16; // in 'px' unit
   --b-radius: #{f.rem(20)};
   --smaller-b-radius: #{f.rem(10)};
 
-  /* Fonts */
-  --primary-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --secondary-font: "Fira Code", monospace;
+  --header-height: #{f.rem(64.39)};
+  @include b.breakpoint(md, max-width) {
+    --header-height: #{f.rem(50)};
+  }
 
   @include m.light-theme;
 }
